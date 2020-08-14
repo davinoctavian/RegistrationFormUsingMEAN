@@ -1,3 +1,4 @@
+# EDIT BY DAVIN
 ## Welcome to the mean stack
 
 The mean stack is intended to provide a simple and fun starting point for cloud native fullstack javascript applications.   
@@ -16,15 +17,14 @@ MEAN is a set of Open Source components that together, provide an end-to-end fra
 
 ### Installation 
 ``` 
-git clone https://github.com/linnovate/mean
-cd mean
+git clone https://github.com/davinoctavian/RegistrationFormUsingMEAN.git
 cp .env.example .env
 yarn
 yarn start (for development)
 ```
 ### Docker based 
 ``` 
-git clone https://github.com/linnovate/mean
+git clone https://github.com/davinoctavian/RegistrationFormUsingMEAN.git
 cd mean
 cp .env.example .env
 docker-compose up -d
