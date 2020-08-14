@@ -1,0 +1,95 @@
+<mat-card [ngClass]="{'example-card': isRegistered==false, 'example-card-disable': isRegistered==true}">
+  <mat-card-title>Registration</mat-card-title>
+  <mat-card-content>
+    <form class="example-form" [formGroup]="userForm">
+      <div class="regContainer">
+          <div *ngIf="mobilenumber.invalid && mobilenumber.hasError('validPhone')" class="errorContaoner"><label class="errorMessage">Invalid mobilenumber</label></div>
+          <input class="regField" placeholder="Mobile number" formControlName="mobilenumber" name="mobilenumber" required>
+      </div>
+      <div class="regContainer">
+          <div *ngIf="firstname.invalid" class="errorContaoner"><label class="errorMessage">Invalid firstname</label></div>
+          <input class="regField" placeholder="Firstname" formControlName="firstname" name="firstname" required>
+      </div>
+      <div class="regContainer">
+          <div *ngIf="lastname.invalid" class="errorContaoner"><label class="errorMessage">Invalid lastname</label></div>
+          <input class="regField" placeholder="Lastname" formControlName="lastname" name="lastname" required>
+      </div>
+      <div class="regContainer">
+          <label>Date of Birth</label>
+          <div>
+            <select formControlName="month" name="month" style="margin-right: 10px;">
+                <option value="">Month</option>
+                <option value="1">Jan</option>
+                <option value="2">Feb</option>
+                <option value="3">Mar</option>
+                <option value="4">Apr</option>
+                <option value="5">May</option>
+                <option value="6">Jun</option>
+                <option value="7">Jul</option>
+                <option value="8">Aug</option>
+                <option value="9">Sep</option>
+                <option value="10">oct</option>
+                <option value="11">Nov</option>
+                <option value="12">Dec</option>
+            </select>
+            <select formControlName="day" name="day" style="margin-right: 10px;"></select>
+            <select formControlName="year" name="year"></select>
+          </div>
+      </div>
+      <div class="regContainer">
+        <label style="margin-right: 10px"><input type="radio" formControlName="gender" name="gender" value="Male"/>Male</label>
+        <label><input type="radio" formControlName="gender" name="gender" value="Female"/>Female</label>
+      </div>
+      <div class="regContainer">
+          <div *ngIf="email.invalid || email.hasError('email')" class="errorContaoner"><label class="errorMessage">Invalid email address</label></div>
+          <input class="regField" placeholder="Email" formControlName="email" name="email" required>
+      </div>
+      <div class="regContainer">
+          <input type="button" name="register" (click)="register()" value="Register" class="regButton"/>
+      </div>
+      <!--<table cellspacing="0" [formGroup]="userForm">
+        <tr>
+          <td>
+            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              
+              <mat-error *ngIf="email.invalid && email.hasError('email')">Invalid email address</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              
+              <mat-error *ngIf="repeatPassword.invalid && repeatPassword.hasError('passwordMatch')">Password mismatch</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>-->
+    </form>
+  </mat-card-content>
+  <!--<mat-card-actions>
+    <button mat-raised-button (click)="register()" color="primary">Register</button>
+    <span>Allrady have an account ? <a [routerLink]="['/auth/login']">login</a> here</span>
+  </mat-card-actions>-->
+  
+</mat-card>
+<mat-card class="example-card">
+    <div *ngIf="isRegistered == false" class="regFooter">
+        <label style="flex: auto; align-self: center;">Footer</label>
+    </div>
+    <div *ngIf="isRegistered == true" class="regContainer">
+        <input type="button" name="login" (click)="login()" value="Login" class="regButton"/>
+    </div>
+</mat-card>
